@@ -1,57 +1,30 @@
-# Feature Importance Visualization
+# 🏠 House Price Prediction
 
-This project provides a Python script to train a LightGBM model and visualize the feature importance of the dataset.
+This project focuses on predicting house prices using various regression models. Different machine learning algorithms are compared to determine the best-performing model.
 
-## Installation
+## 📌 Models Used
+- **Linear Regression (LR)**
+- **K-Nearest Neighbors (KNN)**
+- **Decision Tree (CART)**
+- **Random Forest (RF)**
+- **Gradient Boosting (GBM)**
+- **XGBoost**
+- **LightGBM**
 
-Ensure you have the required libraries installed. You can install them using:
+## 📊 Results (RMSE Values)
+| Model | RMSE |
+|--------|------------|
+| **Linear Regression** | 52588.3054 |
+| **KNN** | 50620.09 |
+| **CART** | 40931.5896 |
+| **Random Forest** | 31281.5472 |
+| **GBM** | 27111.0259 |
+| **XGBoost** | 29082.8707 |
+| **LightGBM** | 30631.9594 |
 
-```bash
-pip install numpy pandas lightgbm matplotlib seaborn scikit-learn
-```
-
-## Usage
-
-1. Prepare your dataset and define `X` (features) and `y` (target variable).
-2. Run the script to train the LightGBM model and visualize the feature importance.
-
-### Example Code
-
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from lightgbm import LGBMRegressor
-
-# Function to plot feature importance
-def plot_importance(model, features, num=20, save=False):
-    feature_imp = pd.DataFrame({"Value": model.feature_importances_, "Feature": features.columns})
-    plt.figure(figsize=(12, 14))
-    sns.set(font_scale=1.2)
-    sns.barplot(x="Value", y="Feature", data=feature_imp.sort_values(by="Value", ascending=False)[0:num])
-    plt.title("Feature Importance", fontsize=14)
-    plt.xlabel("Importance", fontsize=12)
-    plt.ylabel("Features", fontsize=12)
-    plt.xticks(rotation=45)
-    plt.gca().invert_yaxis()
-    plt.tight_layout()
-    plt.show()
-    if save:
-        plt.savefig("importances.png")
-
-# Train model and plot feature importance
-model = LGBMRegressor()
-model.fit(X, y)
-plot_importance(model, X, num=20)
-```
-
-## Saving the Plot
-
-To save the feature importance plot as an image, pass `save=True` when calling `plot_importance`:
-
-```python
-plot_importance(model, X, num=20, save=True)
-```
-
-This will save the image as `importances.png` in the working directory.
+## 📂 Installation
+1. Install the required libraries:
+   ```bash
+   pip install numpy pandas scikit-learn lightgbm xgboost matplotlib seaborn
+   
+📌 For more details: LightGBM Documentation(https://lightgbm.readthedocs.io/)
