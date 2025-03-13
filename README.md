@@ -44,7 +44,7 @@ pip install numpy pandas scikit-learn lightgbm xgboost matplotlib seaborn
 
 ### Step 2: Clone the Repository
 ```bash
-git clone https://github.com/yourusername/house-price-prediction.git
+git clone https://github.com/faiggafarov/house-price-prediction.git
 cd house-price-prediction
 ```
 
